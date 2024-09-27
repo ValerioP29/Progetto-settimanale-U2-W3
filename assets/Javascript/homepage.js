@@ -4,6 +4,7 @@ const productKey =
 let arrayOfProducts = [];
 
 const getProduct = function () {
+  document.getElementById("loadingIndicator").style.display = "inline-block";
   fetch(productsURL, {
     headers: {
       Authorization: productKey,
@@ -23,6 +24,9 @@ const getProduct = function () {
     })
     .catch((err) => {
       console.log("ERRORE", err);
+    })
+    .finally(() => {
+      document.getElementById("loadingIndicator").style.display = "none";
     });
 };
 

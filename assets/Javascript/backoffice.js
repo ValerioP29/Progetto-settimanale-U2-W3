@@ -142,7 +142,6 @@ const openEditModal = function (productId) {
     });
 };
 
-// Gestire l'invio del modulo di modifica
 editProductForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -166,10 +165,10 @@ editProductForm.addEventListener("submit", function (event) {
       if (response.ok) {
         alert("Modifica vino effettuata");
         getProducts();
-        // Chiudi il modale dopo la modifica
+
         const modal = bootstrap.Modal.getInstance(document.getElementById("editProductModal"));
         modal.hide();
-        selectedProductId = null; // Resetta l'ID del prodotto selezionato
+        selectedProductId = null; //
       } else {
         throw new Error("Qualcosa è andato storto");
       }
