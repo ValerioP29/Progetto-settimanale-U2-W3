@@ -87,24 +87,12 @@
                       <form id="editProductForm">
                         <input type="hidden" id="productId" />
                         <div class="mb-3">
-                          <label for="name" class="form-label">Nome del prodotto</label>
-                          <input type="text" class="form-control" id="name" required />
+                          <label for="quantity" class="form-label text-dark">Quantità</label>
+                          <input type="number" class="form-control" id="quantity" required min="1" />
                         </div>
                         <div class="mb-3">
-                          <label for="description" class="form-label">Descrizione del prodotto</label>
-                          <input type="text" class="form-control" id="description" required />
-                        </div>
-                        <div class="mb-3">
-                          <label for="price" class="form-label">Prezzo</label>
-                          <input type="number" class="form-control" id="price" required />
-                        </div>
-                        <div class="mb-3">
-                          <label for="brand" class="form-label">Brand</label>
-                          <input type="text" class="form-control" id="brand" required />
-                        </div>
-                        <div class="mb-3">
-                          <label for="image" class="form-label">Immagine URL</label>
-                          <input type="text" class="form-control" id="image" required />
+                          <label for="shippingAddress" class="form-label text-dark">Indirizzo di Spedizione</label>
+                          <input type="text" class="form-control" id="shippingAddress" required />
                         </div>
                         <button type="submit" class="btn btn-primary">SALVA MODIFICHE</button>
                       </form>

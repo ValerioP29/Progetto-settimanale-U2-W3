@@ -59,12 +59,10 @@ function editProduct(productId) {
     return;
   }
 
+  // Assicurati di precompilare i campi con valori appropriati
   document.getElementById("productId").value = product._id;
-  document.getElementById("name").value = product.name;
-  document.getElementById("description").value = product.description;
-  document.getElementById("price").value = product.price;
-  document.getElementById("brand").value = product.brand;
-  document.getElementById("image").value = product.imageUrl;
+  document.getElementById("quantity").value = product.quantity || 1;
+  document.getElementById("shippingAddress").value = product.shippingAddress || "";
 
   // Mostra il modulo di modifica
   const editModal = new bootstrap.Modal(document.getElementById("editModal"));
