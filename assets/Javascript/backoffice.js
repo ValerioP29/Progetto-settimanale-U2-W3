@@ -19,7 +19,6 @@ const submitForm = document.getElementById("productForm");
 const resetBtn = document.getElementById("resetBtn");
 const editProductForm = document.getElementById("editProductForm");
 
-// Variabile globale per tenere traccia del prodotto selezionato
 let selectedProductId = null;
 
 submitForm.addEventListener("submit", function (event) {

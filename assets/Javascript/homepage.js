@@ -62,7 +62,7 @@ function editProduct(productId) {
   // Assicurati di precompilare i campi con valori appropriati
   document.getElementById("productId").value = product._id;
   document.getElementById("quantity").value = product.quantity || 1;
-  document.getElementById("shippingAddress").value = product.shippingAddress || "";
+  document.getElementById("shippingAddress").value = product.shippingAddress || "Via";
 
   // Mostra il modulo di modifica
   const editModal = new bootstrap.Modal(document.getElementById("editModal"));
