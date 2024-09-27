@@ -123,17 +123,14 @@ const openEditModal = function (productId) {
     },
   })
     .then((product) => {
-      // Popola il modale con i dettagli del prodotto
       document.getElementById("name").value = product.name;
       document.getElementById("description").value = product.description;
       document.getElementById("price").value = product.price;
       document.getElementById("brand").value = product.brand;
       document.getElementById("image").value = product.imageUrl;
 
-      // Imposta l'ID del prodotto selezionato per la modifica
       selectedProductId = productId;
 
-      // Mostra il modale
       const modal = new bootstrap.Modal(document.getElementById("editProductModal"));
       modal.show();
     })
