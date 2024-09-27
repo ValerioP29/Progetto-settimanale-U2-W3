@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WineWhispers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Stili personalizzati */
+      main {
+        background-image: url("https://img.freepik.com/foto-premium/bicchiere-di-vino-rosso-e-grappolo-d-uva-su-sfondo-nero-ai-generativo_841229-2483.jpg?w=1380");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 50px 0;
+      }
+      header {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 40px 0;
+      }
+
+      h1 {
+        font-family: "Georgia", serif;
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-family: "Arial", sans-serif;
+        font-size: 2rem;
+        color: #f8f9fa;
+      }
+
+      blockquote {
+        padding-left: 20px;
+        margin: 20px 0;
+      }
+
+      footer {
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body class="vh-100 d-flex flex-column text-white">
+    <header class="text-center">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex col-2" href="#">
+            <img width="50%" class="rounded-circle" src="./assets/img/Gemini_Generated_Image_m4tmcqm4tmcqm4tm.jpg" alt="wine logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active fs-5" aria-current="page" href="./homepage.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-5" href="./backoffice.html">Backoffice</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-light" type="submit">Search</button>
+              <!-- Modal di modifica -->
+              <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editModalLabel">Modifica Prodotto</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="editProductForm">
+                        <input type="hidden" id="productId" />
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Nome del prodotto</label>
+                          <input type="text" class="form-control" id="name" required />
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">Descrizione del prodotto</label>
+                          <input type="text" class="form-control" id="description" required />
+                        </div>
+                        <div class="mb-3">
+                          <label for="price" class="form-label">Prezzo</label>
+                          <input type="number" class="form-control" id="price" required />
+                        </div>
+                        <div class="mb-3">
+                          <label for="brand" class="form-label">Brand</label>
+                          <input type="text" class="form-control" id="brand" required />
+                        </div>
+                        <div class="mb-3">
+                          <label for="image" class="form-label">Immagine URL</label>
+                          <input type="text" class="form-control" id="image" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">SALVA MODIFICHE</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <h1>WineWhispers</h1>
+      <h2>Tutti i gusti + 1</h2>
+      <blockquote class="blockquote text-center bg-dark">
+        <p class="mb-0">"Meglio un figlio in guerra che dell'alcol per terra"</p>
+        <footer class="blockquote-footer fw-light">
+          <cite title="Source Title">Sigmund Freud</cite>
+        </footer>
+      </blockquote>
+      <img src="./assets/img/Gemini_Generated_Image_m4tmcqm4tmcqm4tm.jpg" width="15%" class="rounded-circle mt-3" alt="wine logo" />
+    </header>
+    <main>
+      <div class="container my-5">
+        <div class="row" id="product-row"></div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center text-dark">WineWhispers</div>
+          <div class="col text-center text-secondary">All rights reserved</div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/Javascript/homepage.js"></script>
+  </body>
+</html>
