@@ -37,7 +37,7 @@ const createProductCard = function (arrayOfProducts) {
     const newCol = document.createElement("div");
     newCol.classList.add("col", "col-12", "col-md-4", "col-lg-3");
     newCol.innerHTML = `
-      <div class="card h-100 border-secondary shadow-lg rounded">
+      <div class="card h-100 border-secondary shadow-lg rounded" >
         <img src="${product.imageUrl}" class="card-img-top img-fluid" alt="${product.name || "Immagine bottiglia"}" style="height: 200px; object-fit: cover;">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${product.name}</h5>
