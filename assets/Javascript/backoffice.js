@@ -121,18 +121,21 @@ const openEditModal = function (productId) {
       Authorization: productKey,
     },
   })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Errore nel recupero del prodotto");
+      }
+      return response.json();
+    })
     .then((product) => {
-      // Popola il modale con i dettagli del prodotto
       document.getElementById("name").value = product.name;
       document.getElementById("description").value = product.description;
       document.getElementById("price").value = product.price;
       document.getElementById("brand").value = product.brand;
       document.getElementById("image").value = product.imageUrl;
 
-      // Imposta l'ID del prodotto selezionato per la modifica
-      selectedProductId = productId;
+      selectedProductId = productId; // Imposta l'ID del prodotto selezionato
 
-      // Mostra il modale
       const modal = new bootstrap.Modal(document.getElementById("editProductModal"));
       modal.show();
     })
@@ -144,11 +147,18 @@ const openEditModal = function (productId) {
 editProductForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  // Recupera i valori dal form
   const name = document.getElementById("name").value;
   const description = document.getElementById("description").value;
   const price = document.getElementById("price").value;
   const brand = document.getElementById("brand").value;
   const imageUrl = document.getElementById("image").value;
+
+  // Controllo dell'ID del prodotto selezionato
+  if (!selectedProductId) {
+    alert("Nessun prodotto selezionato per la modifica.");
+    return;
+  }
 
   const wineBottle = new Wines(name, description, price, brand, imageUrl);
 
@@ -164,12 +174,11 @@ editProductForm.addEventListener("submit", function (event) {
       if (response.ok) {
         alert("Modifica vino effettuata");
         getProducts();
-
         const modal = bootstrap.Modal.getInstance(document.getElementById("editProductModal"));
         modal.hide();
-        selectedProductId = null; //
+        selectedProductId = null;
       } else {
-        throw new Error("Qualcosa è andato storto");
+        throw new Error("Qualcosa è andato storto durante l'aggiornamento del prodotto.");
       }
     })
     .catch((err) => {
@@ -199,7 +208,6 @@ const deleteProduct = function (id) {
   }
 };
 
-// Carica i prodotti all'avvio della pagina
 document.addEventListener("DOMContentLoaded", function () {
   getProducts();
 });
