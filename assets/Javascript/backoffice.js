@@ -105,7 +105,6 @@ const createProductCard = function (arrayOfProducts) {
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text flex-grow-1">${product.description}</p>
                     <p class="card-text">${product.price}€</p>
-                    <a href="./details.html?_id=${product._id}" class="btn btn-primary">VAI AI DETTAGLI</a>
                     <button class="btn btn-warning" onclick="openEditModal('${product._id}')">MODIFICA</button>
                     <button class="btn btn-danger" onclick="deleteProduct('${product._id}')">CANCELLA</button>
                 </div>
